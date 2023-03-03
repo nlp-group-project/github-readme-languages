@@ -10,6 +10,9 @@ import os
 import json
 from typing import Dict, List, Optional, Union, cast
 import requests
+from bs4 import BeautifulSoup
+import time
+import re
 
 from env import github_token, github_username
 
@@ -141,8 +144,10 @@ def get_repo_links(github_token=github_token, github_username=github_username,
         # obtain page data
         response = requests.get(url + str(i), headers)
         soup = BeautifulSoup(response.content, 'html.parser')
-        content = soup.find_all('h3')
-        time.sleep(15)
+        content = soup.find_all('a', class_='v-align-middle')
+        print(response)
+        time.sleep(2)
+        
         
         # set empty list to agg for each page
         page_list = []
@@ -166,7 +171,9 @@ def get_repo_links(github_token=github_token, github_username=github_username,
     # saves returned list into .py file for calling in later functions
     with open("repos.py", "w") as repos:
         repos.write(f'REPOS = {list_of_repos}')
-        
+    
+    print(response)
+    
     return list_of_repos
 
 #------------------------------------------------------------------------------------------------------------
@@ -198,3 +205,61 @@ def get_readme_data():
     
     
     return readme_data
+
+
+
+
+def get_repo_links1(github_token=github_token, github_username=github_username,
+                                         topic='shoes', number_of_pages=20):
+    '''
+    Takes in a topic, your unique github API token, and your github username as
+    strings and an interger for the number of pages to query
+    Returns: list of repositories from GitHub in the form of
+    '<username>/<repo_name>'
+    '''
+    # set URL without page number
+    #url = f'https://github.com/topics/{topic}?&s=stars&page='
+    
+    
+    
+    # set header for github auth
+    headers = {"Authorization": f"token {github_token}",
+               "User-Agent": github_username}
+    
+    # set empty list for total repos scraped
+    list_of_repos = []
+    
+    # for each page in range of provided number
+    for i in range(1, number_of_pages + 1):
+        
+        url = f'https://github.com/search?o=desc&p={i}&q={topic}&s=stars&type=Repositories'
+        
+        # obtain page data
+        response = requests.get(url + str(i), headers)
+        soup = BeautifulSoup(response.content, 'html.parser')
+        content = soup.find_all('a', class_='v-align-middle')
+        print(response)
+        
+        repos_list = []
+        
+        for repo in content:
+        
+            link = repo['href']
+            print(link)
+            
+            repos_list.append(link)
+            print(repos_list)
+        
+        time.sleep(20)
+        
+        list_of_repos.extend(repos_list)
+        print(list_of_repos)
+        print()
+    
+    # saves returned list into .py file for calling in later functions
+    with open("repos.py", "w") as repos:
+        repos.write(f'REPOS = {list_of_repos}')
+    
+    print(response)
+    
+    return list_of_repos
