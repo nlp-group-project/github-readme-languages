@@ -20,10 +20,6 @@ from wordcloud import WordCloud
 
 #--------------------------------------------------------------------
 
-
-
-
-
 def clean_text(text, extra_stopwords=['r', 'u', '2', 'ltgt']):
     '''
     This function does what 'basic_clean' does, but takes it a step further by removing stopwords and lemmatizing the text.
@@ -140,6 +136,8 @@ def basic_clean(words):
     words = re.sub(r"[^\w0-9'\s]", '', words).lower()
     return words
 
+#--------------------------------------------------------------------
+
 def tokenize(words):
     
     tokenize = nltk.tokenize.ToktokTokenizer()
@@ -147,6 +145,8 @@ def tokenize(words):
     words = tokenize.tokenize(words, return_str = True)
     
     return words
+
+#--------------------------------------------------------------------
 
 def stem(words):
     
@@ -158,6 +158,8 @@ def stem(words):
     
     return new_text
 
+#--------------------------------------------------------------------
+
 def lemmatize(words):
     
     wnl = nltk.stem.WordNetLemmatizer()
@@ -167,6 +169,8 @@ def lemmatize(words):
     new_text = ' '.join(lemmas)
     
     return new_text
+
+#--------------------------------------------------------------------
 
 def remove_stopwords(x, extra_words = [], exclude_words = []):
 
@@ -184,6 +188,7 @@ def remove_stopwords(x, extra_words = [], exclude_words = []):
 
     return string_without_stopwords
 
+#--------------------------------------------------------------------
 
 def prep_article_data(df, column, extra_words=[], exclude_words=[]):
 
