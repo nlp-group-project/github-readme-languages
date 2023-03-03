@@ -206,16 +206,14 @@ def get_readme_data():
     
     return readme_data
 
+#------------------------------------------------------------------------------------------------------------
 
-
-
-def get_repo_links1(github_token=github_token, github_username=github_username,
+def get_repo_links_200(github_token=github_token, github_username=github_username,
                                          topic='shoes', number_of_pages=20):
     '''
     Takes in a topic, your unique github API token, and your github username as
     strings and an interger for the number of pages to query
-    Returns: list of repositories from GitHub in the form of
-    '<username>/<repo_name>'
+    Returns: list of repositories from GitHub.
     '''
     # set URL without page number
     #url = f'https://github.com/topics/{topic}?&s=stars&page='
