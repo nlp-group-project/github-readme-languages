@@ -22,10 +22,6 @@ from env import github_token, github_username
 # TODO: Add your github username to your env.py file under the variable `github_username`
 # TODO: Add more repositories to the `REPOS` list below.
 
-github_username = 'shawn-brown12'
-
-github_token = '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'
-
 REPOS = []
 
 headers = {"Authorization": f"token {github_token}", "User-Agent": github_username}
