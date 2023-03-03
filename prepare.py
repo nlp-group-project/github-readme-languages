@@ -33,7 +33,7 @@ def clean_text(text, extra_stopwords=['r', 'u', '2', 'ltgt']):
                    .decode('utf-8', 'ignore')
                    .lower())
     
-    words = re.sub(r'[^\w\s]', '', clean_text).split()
+    words = re.sub(r'[^\w\s+]', '', clean_text).split()
     
     return [wnl.lemmatize(word) for word in words if word not in stopwords]
 
