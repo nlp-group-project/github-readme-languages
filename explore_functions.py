@@ -38,7 +38,42 @@ def xy_train(train, validate, test, target):
 
 #---------------------------------------------------------------
 
+def lesser_langs_list(df):
+    
+    '''
+    this function takes in the dataframe of scraped
+    github data, cleans, lemmatises & removes stopwords,
+    isolates the language column into word counts, then
+    turns that col into a separate DF, isolates out the 
+    top 6 languages, and turns all the remaining languages
+    into a list
+    '''
+    
+    #returning all the words in language individually
+    lang_words = clean_text(' '.join(df['language']))
 
+    # setting the cleaned txt to Series and counting word frequency
+    count = pd.Series(lang_words).value_counts()
+
+    # amke into df
+    lang_df = pd.DataFrame(count)
+
+    # language counts, resetting & renaming index
+    lang_df.columns = ['counts']
+    lang_df = lang_df.reset_index()
+    lang_df = lang_df.rename(columns = {'index':'language'})
+
+    # all the languages that are not in the top 6
+    langs = ['javascript', 'html', 'cs', 'ruby', 'python', 'typescript']
+    other_langs = lang_df[~lang_df['language'].isin(langs)]
+
+    # dropping 'counts col'
+    other_langs = other_langs.drop(columns=['counts'])
+    
+    # turning df into a list
+    other_langs = other_langs.values.tolist()
+    
+    return other_langs
 
 #---------------------------------------------------------------
 
