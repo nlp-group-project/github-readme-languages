@@ -2,4 +2,13 @@ env.py
 .DS_Store
 .ipynb_checkpoints/
 __pycache__
+<<<<<<< HEAD
 *.csv
+=======
+*.csv
+
+
+*.csv
+env.py
+*.ipynb_checkpoints*
+>>>>>>> 9d2b56f00ea23b121ab336091db757fcb2547e11
