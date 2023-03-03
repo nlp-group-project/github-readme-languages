@@ -86,7 +86,7 @@ def lang_freq_barchart():
 
     # set xtick labels and properties
     plt.xticks([0, 1, 2, 3, 4, 5, 6, 7], 
-               ['Javascript', 'HTML', 'CS', 'Ruby', 'Python', 'Typescript', 'Dart', 'Java'],
+               ['Javascript', 'HTML', 'CSS', 'Ruby', 'Python', 'Typescript', 'Dart', 'Java'],
                 rotation = 25)
 
     plt.legend([],[])
