@@ -75,6 +75,10 @@ By acquiring using web scraping techniques, exploring the data and creating clas
   - Performance Increase: 73%
 
 
+## Recommendations
+- We recommend that those interested in shoe marketing use the results of this project to bolster or enhance the jargon they use. 
+
+
 ## Next Steps
 - Explore bigrams and trigrams.
 - Visualize the bigrams and trigrams via word clouds.
