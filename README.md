@@ -30,7 +30,7 @@ Intial thoughs is that Java will be the most common language, followed by python
 | :-- | :-- |
 | repo | repository of readme file |
 | readme_contents | text content of readme file |
-| clean | text content cleaned by: <br> - lowercase all words,<br> - unicode "NKFD",<br> - encode "ASCII", <br> - decode "utf-i" |
+| clean | text content cleaned by: <br> - lowercase all words,<br> - unicode "NKFD",<br> - encode "ASCII", <br> - decode "UTF-8" |
 | stemmed | all text from the "clean" column stemmed | 
 | lemmatized |  all text from the "clean" column lemmatized |
 
@@ -49,13 +49,14 @@ Intial thoughs is that Java will be the most common language, followed by python
 - Cleaned text contents:
   - lowercased
   - unicode "NKFD"
-  - encode "ASCII", decode "UTF-I
+  - encode "ASCII", decode "UTF-8"
 - Create stemmed and lemmatized columns.
 - Split into train, validate, and test sets (56/24/20).
 
 
 ## Explore
-
+- Search for most common words.
+- 
 
 ## Conclusion
 
@@ -64,7 +65,10 @@ Intial thoughs is that Java will be the most common language, followed by python
 
 
 ## Steps to Reproduce
-
+1. Clone this Repo.
+2. Use functions in acquire.py file.
+3. Use functions in prepare.py to clean and prep data.
+4. Use same configurations for models.
 
 
 
