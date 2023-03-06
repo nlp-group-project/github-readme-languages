@@ -137,12 +137,12 @@ def clean_df(df):
 
 def word_counts(df):
     
-    other_words = prep.clean_text(' '.join(df[df['language'] == 'Other']['readme_contents']))
-    javascript_words = prep.clean_text(' '.join(df[df['language'] == 'JavaScript']['readme_contents']))
-    html_words = prep.clean_text(' '.join(df[df['language'] == 'HTML']['readme_contents']))
-    dart_words = prep.clean_text(' '.join(df[df['language'] == 'Dart']['readme_contents']))
-    ruby_words = prep.clean_text(' '.join(df[df['language'] == 'Ruby']['readme_contents']))
-    python_words = prep.clean_text(' '.join(df[df['language'] == 'Python']['readme_contents']))
+    other_words = prep.clean_text(' '.join(df[df['language'] == 'other']['readme_contents']))
+    javascript_words = prep.clean_text(' '.join(df[df['language'] == 'javaScript']['readme_contents']))
+    html_words = prep.clean_text(' '.join(df[df['language'] == 'html']['readme_contents']))
+    dart_words = prep.clean_text(' '.join(df[df['language'] == 'dart']['readme_contents']))
+    ruby_words = prep.clean_text(' '.join(df[df['language'] == 'ruby']['readme_contents']))
+    python_words = prep.clean_text(' '.join(df[df['language'] == 'python']['readme_contents']))
     all_words = prep.clean_text(' '.join(df['readme_contents']))
 
     other_counts = pd.Series(other_words).value_counts()
