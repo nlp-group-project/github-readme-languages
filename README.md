@@ -12,6 +12,11 @@
 This repository contains functions and workbooks for a group project to predict the programming language of Github repositories using Natural Language Processing techniques. It is being conducted at Codeup, Data Science programme, Noether cohort, March 2023.
 
 
+## Project Goals
+- Determine the programming language of a given Github repository. 
+- The repository must contain the word 'shoes'.
+
+
 ## Initial Thoughts
 Intial thoughs is that Java will be the most common language, followed by python. As for the predictory words, shoe company brands or shoe types will be the most common words.
 
