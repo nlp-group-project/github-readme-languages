@@ -218,6 +218,12 @@ def get_repo_links_200(github_token=github_token, github_username=github_usernam
     # set URL without page number
     #url = f'https://github.com/topics/{topic}?&s=stars&page='
     
+    # Check if file exists
+    file = 'repos.py'
+    
+    if os.path.exists(file):
+        
+        return open('repos.py', mode=mode)
     
     
     # set header for github auth
