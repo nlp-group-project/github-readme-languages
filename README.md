@@ -30,7 +30,7 @@ Intial thoughs is that Java will be the most common language, followed by python
 | :-- | :-- |
 | repo | repository of readme file |
 | readme_contents | text content of readme file |
-| clean | text content cleaned by: <br> - lowercase all words,<br> - unicode "NKFD",<br> - encode "ASCII", <br> - decode "UTF-8" |
+| clean | readme_content column cleaned by: <br> - lowercase all words,<br> - unicode "NKFD",<br> - encode "ASCII", <br> - decode "UTF-8" |
 | stemmed | all text from the "clean" column stemmed | 
 | lemmatized |  all text from the "clean" column lemmatized |
 
