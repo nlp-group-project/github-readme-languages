@@ -4,6 +4,7 @@ import numpy as np
 import seaborn as sns
 from scipy import stats
 from sklearn.model_selection import train_test_split
+import matplotlib.pyplot as plt
 
 #---------------------------------------------------------------
 
@@ -99,11 +100,11 @@ def lang_freq_barchart():
 
 #---------------------------------------------------------------
 
-def word_count():
+def word_count(wc):
     '''this function takes in teh word counts of our dataframe and produces
     the highest counted words by language into a bar plot
     '''
-    word_freq.sort_values('all', ascending=False).head(5).plot.bar(figsize=(16, 9))
+    wc.sort_values('all', ascending=False).head(5).plot.bar(figsize=(16, 9))
     plt.title('Most common words by category')
     plt.ylabel('Count')
     plt.xlabel('Most common words')
