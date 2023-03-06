@@ -56,12 +56,14 @@ Intial thoughs is that Java will be the most common language, followed by python
 
 ## Explore
 - Search for most common words.
-- 
+- Create bar plots and word clouds to visualize trends.
 
 ## Conclusion
 
 
 ## Next Steps
+- Explore bigrams and trigrams.
+- Visualize them via word clouds.
 
 
 ## Steps to Reproduce
