@@ -28,7 +28,7 @@ This repository contains functions and workbooks for a group project to predict 
 | :-- | :-- |
 | repo | repository of readme file |
 | readme_contents | text content of readme file |
-| clean | text content cleaned by: <br> lowercase all words,<br> unicode "NKFD",<br> encode "ASCII", <br> decode "utf-i" |
+| clean | text content cleaned by: <br> - lowercase all words,<br> - unicode "NKFD",<br> - encode "ASCII", <br> - decode "utf-i" |
 | stemmed | all text from the "clean" column stemmed | 
 | lemmatized |  all text from the "clean" column lemmatized |
 
