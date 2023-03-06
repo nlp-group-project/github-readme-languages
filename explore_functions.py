@@ -78,30 +78,19 @@ def lesser_langs_list(df):
 #---------------------------------------------------------------
 
 # most frequent words, label-coloured
-
 def lang_freq_barchart():
     
-    '''
-    this function uses the top frequency programming
-    languages and plots the top 5 languages along 
-    with the language category 'other'.
-    '''
-    
-    # assign variable
-    graphed = top_freq.plot.bar(figsize = (9,6), color = 'magenta')
+    top_freq.plot.bar(figsize = (9,6), color = 'magenta')
 
     plt.title('Github shoe repository programming language word counts')
 
     # set xtick labels and properties
-    plt.xticks([0, 1, 2, 3, 4, 5], 
-               [ 'Other', 'JavaScript', 'Ruby', 'Python', 'Dart', 'HTML'],
+    plt.xticks([0, 1, 2, 3, 4, 5, 6, 7], 
+               ['Javascript', 'HTML', 'CSS', 'Ruby', 'Python', 'Typescript', 'Dart', 'Java'],
                 rotation = 25)
 
     plt.legend([],[])
-    plt.yticks(np.arange(0, 49, 6))
-    
-    # display y axis grids
-    graphed.yaxis.grid(True)
+    plt.yticks(np.arange(0, 21, 2))
 
     plt.ylabel('Count')
     plt.xlabel('Repository language frequency')
@@ -110,7 +99,16 @@ def lang_freq_barchart():
 
 #---------------------------------------------------------------
 
-
+def word_count():
+    '''this function takes in teh word counts of our dataframe and produces
+    the highest counted words by language into a bar plot
+    '''
+    word_freq.sort_values('all', ascending=False).head(5).plot.bar(figsize=(16, 9))
+    plt.title('Most common words by category')
+    plt.ylabel('Count')
+    plt.xlabel('Most common words')
+    plt.xticks(rotation=45)
+    plt.show()
 
 #---------------------------------------------------------------
 
