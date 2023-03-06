@@ -9,7 +9,7 @@
 
 
 ## Project Description
-This repository contains functions and workbooks for a group project to predict the programming language of Github repositories using Natural Language Processing techniques. It is being conducted at Codeup, Data Science programme, Noether cohort, March 2023.
+This is a Natural Language Processing project that undertakes the task of predicting the main coding language of repositories using their README files. In particular, we have chosen to go through 100+ repositories that are related to shoes and are the "most starred". It is being conducted at Codeup, Data Science programme, Noether cohort, March 2023.
 
 
 ## Project Goals
