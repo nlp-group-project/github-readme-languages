@@ -20,7 +20,7 @@ from wordcloud import WordCloud
 
 #--------------------------------------------------------------------
 
-def clean_text(text, extra_stopwords=['r', 'u', '2', 'ltgt']):
+def clean_text(text, extra_stopwords=['shoe', 'shoes']):
     '''
     This function does what 'basic_clean' does, but takes it a step further by removing stopwords and lemmatizing the text.
     '''
