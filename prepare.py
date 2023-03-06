@@ -202,7 +202,7 @@ def prep_article_data(df, column, extra_words=[], exclude_words=[]):
     
     df['lemmatized'] = df['clean'].apply(lemmatize)
     
-    return df[['title', column,'clean', 'stemmed', 'lemmatized']]
+    return df[['repo', column,'clean', 'stemmed', 'lemmatized']]
 
 #--------------------------------------------------------------------
 
