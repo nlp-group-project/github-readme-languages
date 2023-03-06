@@ -37,7 +37,7 @@ Intial thoughs is that Java will be the most common language, followed by python
 
 ## Acquire
 - Data acquired from Github.
-  - Query for 'search' in search bar. Filter by 'Most Stars'.
+  - Query for 'shoes' in search bar. Filter by 'Most Stars'.
 - 198 Readme files acquired.
 - Each row represents a repository.
 - Columns represent the repository, language, and readme contents.
