@@ -112,6 +112,50 @@ def word_count():
 
 #---------------------------------------------------------------
 
+def clean_df(df):
+    
+    df = df.drop([29, 139])
 
+    df = df.dropna()
+
+    others = ['TypeScript', 'Jupyter Notebook', 'Java', 'C#', 'Swift', 'CSS', 'C', 'C++', 'Kotlin',
+         'VimL', 'Handlebars', 'Vue', 'Go', 'SCSS', 'Emacs Lisp', 'Vim Script', 'Lua', 'TeX',
+         'Rust', 'Shell', 'PHP', 'Vim script', 'CoffeeScript']
+
+    df = df.replace(to_replace=others, value="Other")
+
+    df['language'] = df['language'].str.lower()
+    
+    return df
 
 #---------------------------------------------------------------
+
+def word_counts(df):
+    
+    other_words = prep.clean_text(' '.join(df[df['language'] == 'Other']['readme_contents']))
+    javascript_words = prep.clean_text(' '.join(df[df['language'] == 'JavaScript']['readme_contents']))
+    html_words = prep.clean_text(' '.join(df[df['language'] == 'HTML']['readme_contents']))
+    dart_words = prep.clean_text(' '.join(df[df['language'] == 'Dart']['readme_contents']))
+    ruby_words = prep.clean_text(' '.join(df[df['language'] == 'Ruby']['readme_contents']))
+    python_words = prep.clean_text(' '.join(df[df['language'] == 'Python']['readme_contents']))
+    all_words = prep.clean_text(' '.join(df['readme_contents']))
+
+    other_counts = pd.Series(other_words).value_counts()
+    javascript_counts = pd.Series(javascript_words).value_counts()
+    html_counts = pd.Series(html_words).value_counts()
+    dart_counts = pd.Series(dart_words).value_counts()
+    ruby_counts = pd.Series(ruby_words).value_counts()
+    python_counts = pd.Series(python_words).value_counts()
+    all_counts = pd.Series(all_words).value_counts()
+
+    
+    word_freq = pd.concat([other_counts, javascript_counts, html_counts, dart_counts, 
+                       ruby_counts, python_counts, all_counts], axis=1)
+
+    word_freq.fillna(0, inplace=True)
+    
+    word_freq = word_freq.astype('int')
+
+    word_freq = word_freq.rename(columns={0:'other', 1:'javascript', 2:'html', 3: 'dart', 4:'ruby', 5:'python', 6:'all_counts'})
+
+    return word_freq
