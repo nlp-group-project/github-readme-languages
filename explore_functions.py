@@ -78,19 +78,30 @@ def lesser_langs_list(df):
 #---------------------------------------------------------------
 
 # most frequent words, label-coloured
+
 def lang_freq_barchart():
     
-    top_freq.plot.bar(figsize = (9,6), color = 'magenta')
+    '''
+    this function uses the top frequency programming
+    languages and plots the top 5 languages along 
+    with the language category 'other'.
+    '''
+    
+    # assign variable
+    graphed = top_freq.plot.bar(figsize = (9,6), color = 'magenta')
 
     plt.title('Github shoe repository programming language word counts')
 
     # set xtick labels and properties
-    plt.xticks([0, 1, 2, 3, 4, 5, 6, 7], 
-               ['Javascript', 'HTML', 'CSS', 'Ruby', 'Python', 'Typescript', 'Dart', 'Java'],
+    plt.xticks([0, 1, 2, 3, 4, 5], 
+               [ 'Other', 'JavaScript', 'Ruby', 'Python', 'Dart', 'HTML'],
                 rotation = 25)
 
     plt.legend([],[])
-    plt.yticks(np.arange(0, 21, 2))
+    plt.yticks(np.arange(0, 49, 6))
+    
+    # display y axis grids
+    graphed.yaxis.grid(True)
 
     plt.ylabel('Count')
     plt.xlabel('Repository language frequency')
