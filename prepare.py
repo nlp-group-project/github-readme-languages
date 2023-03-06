@@ -16,6 +16,8 @@ import pymysql
 import matplotlib.pyplot as plt
 import seaborn as sns
 
+import explore_functions as ex
+
 from wordcloud import WordCloud
 
 #--------------------------------------------------------------------

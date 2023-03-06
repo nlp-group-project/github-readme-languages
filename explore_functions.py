@@ -6,6 +6,8 @@ from scipy import stats
 from sklearn.model_selection import train_test_split
 import matplotlib.pyplot as plt
 
+import prepare as prep
+
 #---------------------------------------------------------------
 
 def split_train_test(df, col):
