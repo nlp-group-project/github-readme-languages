@@ -5,6 +5,8 @@ import seaborn as sns
 from scipy import stats
 from sklearn.model_selection import train_test_split
 import matplotlib.pyplot as plt
+from wordcloud import WordCloud, ImageColorGenerator
+from PIL import Image
 
 import prepare as prep
 
@@ -162,3 +164,35 @@ def word_counts(df):
     word_freq = word_freq.rename(columns={0:'other', 1:'javascript', 2:'html', 3: 'dart', 4:'ruby', 5:'python', 6:'all_counts'})
 
     return word_freq
+
+#---------------------------------------------------------------
+
+def transform_format(val):
+        if val == 0:
+            return 255
+        else:
+            return val
+
+#---------------------------------------------------------------
+
+def shoe_cloud(x):
+    shoe_mask2 = np.array(Image.open("shoe_mask2.png"))
+
+    transformed_shoe_mask = np.ndarray((shoe_mask2.shape[0],shoe_mask2.shape[1]), np.int32)
+
+    for i in range(len(shoe_mask2)):
+        transformed_shoe_mask[i] = list(map(transform_format, shoe_mask2[i]))
+        
+    wc = WordCloud(background_color="white", max_words=150, mask=transformed_shoe_mask, contour_width=.5, contour_color='black')
+
+    # Generate a wordcloud
+    wc.generate(' '.join(x))
+
+    # store to file
+    wc.to_file("shoe_mask.png")
+
+    # show
+    plt.figure(figsize=[12,8])
+    plt.imshow(wc, interpolation='bilinear')
+    plt.axis("off")
+    plt.show()
