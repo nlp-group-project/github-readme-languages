@@ -108,7 +108,7 @@ def word_count(wc):
     '''this function takes in teh word counts of our dataframe and produces
     the highest counted words by language into a bar plot
     '''
-    wc.sort_values('all', ascending=False).head(5).plot.bar(figsize=(16, 9))
+    wc.sort_values('all_counts', ascending=False).head(5).plot.bar(figsize=(16, 9))
     plt.title('Most common words by category')
     plt.ylabel('Count')
     plt.xlabel('Most common words')
@@ -161,9 +161,8 @@ def word_counts(df):
     
     word_freq = word_freq.astype('int')
 
-    word_freq = word_freq.rename(columns={0:'other', 1:'javascript', 2:'html', 3: 'dart', 4:'ruby', 5:'python', 6:'all_counts'})
-
-    return word_freq
+    word_freq.columns = ['other', 'javascript', 'html', 'dart', 'ruby', 'python', 'all_counts']
+    return word_freq, all_words
 
 #---------------------------------------------------------------
 

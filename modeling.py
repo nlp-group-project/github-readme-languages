@@ -12,6 +12,7 @@ def random_forest(X_train, y_train, X_validate, y_validate):
     '''
     results = []
     # creating and transforming x train with the lemmatized data on a random forest model
+    cv = CountVectorizer()
     X_bow = cv.fit_transform(X_train)
     tree = RandomForestClassifier(max_depth=6, 
                             min_samples_leaf=3,
@@ -39,6 +40,7 @@ def dec_tree(X_train, y_train, X_validate, y_validate):
     '''
     results = []
     # creating and transforming x train with the lemmatized data on a random forest model
+    cv = CountVectorizer()
     X_bow = cv.fit_transform(X_train)
     dec = DecisionTreeClassifier(max_depth=3, random_state=42)
 
@@ -63,6 +65,7 @@ def knn(X_train, y_train, X_validate, y_validate):
     '''
     results = []
     # creating and transforming x train with the lemmatized data on a random forest model
+    cv = CountVectorizer()
     X_bow = cv.fit_transform(X_train)
     knn = KNeighborsClassifier(n_neighbors=5, weights='uniform')
 
@@ -87,6 +90,7 @@ def dec_test_accuracy(X_train, y_train, X_validate, y_validate, X_test, y_test):
     '''
     results = []
     # creating and transforming x train with the lemmatized data on a random forest model
+    cv = CountVectorizer()
     X_bow = cv.fit_transform(X_train)
     dec = DecisionTreeClassifier(max_depth=3, random_state=42)
 
